@@ -240,6 +240,12 @@ Select source __Images__, Filter by the __News field__ (the Selectbox link field
 
 ![news-images-datasource](screenshots/21-news-images-datasource.png)
 
+#### d) List of Data Sources
+
+So, this is the `Blueprints > Data Sources` now.
+
+![list-of-datasources](screenshots/22-datasources.png)
+
 ### III. Working with Pages
 
 Now it's time to create the routes and attach data sources. Following the specs we'll have two pages: __Homepage__ and __News__.
@@ -248,13 +254,19 @@ Now it's time to create the routes and attach data sources. Following the specs 
 
 Lets create the __Homepage__, this page is the only one with __Type__ `index`. To do this, go to `Blueprints > Pages`. While creating we'll also attach __List News__ Data Source on this page.
 
-![creating-homepage](screenshots/22-creating-homepage.png)
+![creating-homepage](screenshots/23-creating-homepage.png)
 
 #### b) News
 
 When creating the __News page__ we'll define the __Parameters__ with `title` value, this param is the `$title` used in the __Current News__ Data Source. We'll also attach __Current News__ and __News Images__ Data Sources in this page.
 
-![creating-news](screenshots/23-creating-news.png)
+![creating-news](screenshots/24-creating-news.png)
+
+#### c) List of Pages
+
+So, this is the `Blueprints > Pages` now.
+
+![list-of-pages](screenshots/25-pages.png)
 
 
 
@@ -262,3 +274,357 @@ When creating the __News page__ we'll define the __Parameters__ with `title` val
 05. Mywebsite frontend
 -----
 
+Here we are, lets start our frontend!
+
+Symphony works with XML to transport all data retrieved by the Data Sources and transform in HTMl using XSLT. XSLT is a template engine language very easy to learn, I'll show you the basics.
+
+First thing we need now is install the [Debug Devkit](http://symphonyextensions.com/extensions/debugdevkit/) extensions to see behing the hood of the pages.
+
+`git submodule add https://github.com/symphonycms/debugdevkit.git extensions/debugdevkit --recursive`
+
+### I. Homepage
+
+Now open your homepage [`http://localhost/mywebsite`](http://localhost/mywebsite)!
+
+You'll see a blank page just an `<h1>` with the page title, that's perfect. Open the `/workspace/pages/homepage.xsl`, you'll see the following:
+
+#### a) Default homepage.xsl
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:output method="xml"
+  doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
+  doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"
+  omit-xml-declaration="yes"
+  encoding="UTF-8"
+  indent="yes" />
+
+<xsl:template match="/">
+  <h1><xsl:value-of select="/data/params/page-title"/></h1>
+</xsl:template>
+
+</xsl:stylesheet>
+```
+
+#### b) Homepage ?debug
+
+Now open the debug devkit adding `?debug` in the URL [`http://localhost/mywebsite/?debug`](http://localhost/mywebsite/?debug), and in the XML tab you'll see the following:
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <params>
+        <today>2014-11-05</today>
+        <current-time>22:47</current-time>
+        <this-year>2014</this-year>
+        <this-month>11</this-month>
+        <this-day>05</this-day>
+        <timezone>-02:00</timezone>
+        <website-name>Mywebsite</website-name>
+        <page-title>Homepage</page-title>
+        <root>http://localhost/mywebsite</root>
+        <workspace>http://localhost/mywebsite/workspace</workspace>
+        <http-host>localhost</http-host>
+        <root-page>homepage</root-page>
+        <current-page>homepage</current-page>
+        <current-page-id>1</current-page-id>
+        <current-path>/</current-path>
+        <parent-path>/</parent-path>
+        <current-query-string><![CDATA[debug]]></current-query-string>
+        <current-url>http://localhost/mywebsite</current-url>
+        <upload-limit>5242880</upload-limit>
+        <symphony-version>2.5.1</symphony-version>
+        <cookie-xsrf-token>5N/oAkCRtT8xqfarmBUlR2l/5Sg</cookie-xsrf-token>
+        <cookie-username>bernardo</cookie-username>
+        <cookie-pass>PBKDF2v1|10000|d9b1ac45e1f9ab5ad3ee|9YBlZEEMSI0/95e7PIDmJFPXtfxh5k/600rk5ppPdxMO9HHRNUy0Ag==</cookie-pass>
+        <page-types>
+            <item handle="index">index</item>
+        </page-types>
+        <page-events></page-events>
+    </params>
+    <events />
+    <list-news>
+        <section id="1" handle="news">News</section>
+        <entry id="4">
+            <title handle="vestibulum-nec-facilisis-augue">Vestibulum nec facilisis augue</title>
+            <date iso="2014-11-02T14:18:00-02:00" timestamp="1414945080" time="14:18" weekday="7" offset="-0200">2014-11-02</date>
+        </entry>
+        <entry id="5">
+            <title handle="praesent-dui-lorem">Praesent dui lorem</title>
+            <date iso="2014-11-02T14:18:00-02:00" timestamp="1414945080" time="14:18" weekday="7" offset="-0200">2014-11-02</date>
+        </entry>
+        <entry id="2">
+            <title handle="proin-eu-sagittis-diam">Proin eu sagittis diam</title>
+            <date iso="2014-11-02T14:17:00-02:00" timestamp="1414945020" time="14:17" weekday="7" offset="-0200">2014-11-02</date>
+        </entry>
+        <entry id="3">
+            <title handle="nullam-commodo-metus-a-felis-pharetra-faucibus">Nullam commodo metus a felis pharetra faucibus</title>
+            <date iso="2014-11-02T14:17:00-02:00" timestamp="1414945020" time="14:17" weekday="7" offset="-0200">2014-11-02</date>
+        </entry>
+        <entry id="1">
+            <title handle="lorem-ipsum-dolor-sit-amet">Lorem ipsum dolor sit amet</title>
+            <date iso="2014-11-02T14:15:00-02:00" timestamp="1414944900" time="14:15" weekday="7" offset="-0200">2014-11-02</date>
+        </entry>
+    </list-news>
+</data>
+```
+
+![debug-devkit](screenshots/26-debugdevkit.png)
+
+#### c) Edited homepage.xsl
+
+What matter here is the `<list-news>` node, which is the result of the [List News](#a-list-news) Data Source. Now we'll make a list with this data using __XPath__ in the `/workspace/pages/homepage.xsl`, and the file will look like this:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:output method="xml"
+  doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
+  doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"
+  omit-xml-declaration="yes"
+  encoding="UTF-8"
+  indent="yes" />
+
+<xsl:template match="/">
+  <ul>
+    <xsl:for-each select="data/list-news/entry">
+      <li>
+        <a href="{/data/params/root}/news/{title/@handle}"><xsl:value-of select="title"/></a>
+      </li>
+    </xsl:for-each>
+  </ul>
+</xsl:template>
+
+</xsl:stylesheet>
+```
+
+#### c) Homepage output
+
+And the HTML output will be:
+
+```html
+<!DOCTYPE ul PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<ul>
+  <li>
+    <a href="http://localhost/mywebsite/news/vestibulum-nec-facilisis-augue">Vestibulum nec facilisis augue</a>
+  </li>
+  <li>
+    <a href="http://localhost/mywebsite/news/praesent-dui-lorem">Praesent dui lorem</a>
+  </li>
+  <li>
+    <a href="http://localhost/mywebsite/news/proin-eu-sagittis-diam">Proin eu sagittis diam</a>
+  </li>
+  <li>
+    <a href="http://localhost/mywebsite/news/nullam-commodo-metus-a-felis-pharetra-faucibus">Nullam commodo metus a felis pharetra faucibus</a>
+  </li>
+  <li>
+    <a href="http://localhost/mywebsite/news/lorem-ipsum-dolor-sit-amet">Lorem ipsum dolor sit amet</a>
+  </li>
+</ul>
+```
+
+![homepage-result](screenshots/27-homepage-result.png)
+
+### II. News page
+
+When click on any link you go to the __News__ page, which is the file `/workspace/pages/news.xsl`. First lets see what XML we have attached in this page, click on any link and add `?debug` in the URL [`http://localhost/mywebsite/news/vestibulum-nec-facilisis-augue/?debug`](http://localhost/mywebsite/news/vestibulum-nec-facilisis-augue/?debug):
+
+#### a) News page ?debug
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <params>
+        <today>2014-11-05</today>
+        <current-time>23:24</current-time>
+        <this-year>2014</this-year>
+        <this-month>11</this-month>
+        <this-day>05</this-day>
+        <timezone>-02:00</timezone>
+        <website-name>Mywebsite</website-name>
+        <page-title>News</page-title>
+        <root>http://localhost/mywebsite</root>
+        <workspace>http://localhost/mywebsite/workspace</workspace>
+        <http-host>localhost</http-host>
+        <root-page>news</root-page>
+        <current-page>news</current-page>
+        <current-page-id>2</current-page-id>
+        <current-path>/news/praesent-dui-lorem</current-path>
+        <parent-path>/</parent-path>
+        <current-query-string><![CDATA[debug]]></current-query-string>
+        <current-url>http://localhost/mywebsite/news/praesent-dui-lorem</current-url>
+        <upload-limit>5242880</upload-limit>
+        <symphony-version>2.5.1</symphony-version>
+        <title>praesent-dui-lorem</title>
+        <cookie-xsrf-token>5N/oAkCRtT8xqfarmBUlR2l/5Sg</cookie-xsrf-token>
+        <cookie-username>bernardo</cookie-username>
+        <cookie-pass>PBKDF2v1|10000|d9b1ac45e1f9ab5ad3ee|9YBlZEEMSI0/95e7PIDmJFPXtfxh5k/600rk5ppPdxMO9HHRNUy0Ag==</cookie-pass>
+        <page-types />
+        <page-events></page-events>
+        <ds-current-news.system-id>
+            <item handle="5">5</item>
+        </ds-current-news.system-id>
+        <ds-current-news>
+            <item handle="5">5</item>
+        </ds-current-news>
+    </params>
+    <events />
+    <current-news>
+        <section id="1" handle="news">News</section>
+        <entry id="5">
+            <title handle="praesent-dui-lorem">Praesent dui lorem</title>
+            <date iso="2014-11-02T14:18:00-02:00" timestamp="1414945080" time="14:18" weekday="7" offset="-0200">2014-11-02</date>
+            <author>
+                <item id="1" handle="bernardo-dias-da-cruz" username="bernardo">Bernardo Dias da Cruz</item>
+            </author>
+            <text mode="formatted">
+                <h1>Yey!</h1>
+                <p><strong>Praesent dui lorem</strong>, efficitur in facilisis efficitur, congue vitae nulla. Morbi felis tellus, feugiat eget vulputate eu, sollicitudin in augue. Pellentesque quis magna at tellus dictum convallis eu in velit. Donec lorem ex, placerat id metus ut, placerat convallis ex. Aliquam vel massa erat. Suspendisse condimentum, dolor sit amet pharetra semper, ligula leo porttitor elit, a rhoncus lacus nibh vel tellus. Donec eget purus sagittis, volutpat sem in, finibus sem. Morbi est orci, congue in libero dapibus, lobortis tincidunt libero.</p>
+                <p>Vestibulum nec facilisis augue. Morbi leo ipsum, gravida vitae dapibus nec, suscipit ac justo. Vestibulum tincidunt libero ac orci facilisis, vitae venenatis velit fringilla. Aenean quis ornare sapien. Sed eget condimentum nibh. Nulla ultricies turpis nisi, ut bibendum dui faucibus et. Aliquam mauris dui, placerat vitae turpis nec, laoreet viverra sapien. Integer sit amet semper tortor. Phasellus sollicitudin turpis eget felis mollis, a tincidunt dui vestibulum. Vestibulum lobortis risus ac nisi facilisis viverra.</p>
+                <p>Proin eu sagittis diam. In feugiat egestas enim ac bibendum. Curabitur ullamcorper metus nec tellus aliquam, vel laoreet augue cursus. Suspendisse potenti. Praesent nunc nisi, hendrerit et condimentum quis, aliquam eu enim.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo metus a felis pharetra faucibus. Ut vel enim vitae arcu interdum elementum a a diam. Suspendisse potenti. Sed ac turpis a mi pulvinar consectetur eget sed elit.</p>
+            </text>
+        </entry>
+    </current-news>
+    <news-images>
+        <section id="2" handle="images">Images</section>
+        <entry id="12">
+            <caption handle="ubatuba">ubatuba</caption>
+            <credits handle="andre">andré</credits>
+            <image size="77 KB" bytes="79103" path="/uploads/images" type="image/jpeg">
+                <filename>10743381_919876464707201_1100897924_n.jpg</filename>
+                <meta creation="2014-11-02T15:11:24-02:00" width="960" height="720" />
+            </image>
+        </entry>
+        <entry id="13">
+            <caption handle="ubatuba">ubatuba</caption>
+            <credits handle="andre">andré</credits>
+            <image size="53 KB" bytes="54582" path="/uploads/images" type="image/jpeg">
+                <filename>10749555_919876354707212_669708385_n.jpg</filename>
+                <meta creation="2014-11-02T15:11:36-02:00" width="960" height="720" />
+            </image>
+        </entry>
+        <entry id="11">
+            <caption handle="ubatuba">ubatuba</caption>
+            <credits handle="andre">andré</credits>
+            <image size="75 KB" bytes="77705" path="/uploads/images" type="image/jpeg">
+                <filename>10643250_919876458040535_2051957555_n.jpg</filename>
+                <meta creation="2014-11-02T15:11:02-02:00" width="960" height="720" />
+            </image>
+        </entry>
+        <entry id="10">
+            <caption handle="ubatuba">ubatuba</caption>
+            <credits handle="andre">andré</credits>
+            <image size="38 KB" bytes="39575" path="/uploads/images" type="image/jpeg">
+                <filename>1063075_919876374707210_1102205846_n.jpg</filename>
+                <meta creation="2014-11-02T15:10:35-02:00" width="960" height="720" />
+            </image>
+        </entry>
+        <entry id="9">
+            <caption handle="ubatuba">ubatuba</caption>
+            <credits handle="andre">andré</credits>
+            <image size="127 KB" bytes="130549" path="/uploads/images" type="image/jpeg">
+                <filename>974711_919876548040526_1619447394_n.jpg</filename>
+                <meta creation="2014-11-02T15:10:30-02:00" width="960" height="720" />
+            </image>
+        </entry>
+    </news-images>
+</data>
+```
+
+Spot the `<ds-current-news.system-id>` inside `<params>`, that node have a list with all entries IDs resulted in the __Current News__ Data Source, this is the param we used to link and filter the __News Images__ Data Source. Below in the XML you'll see `<current-news>` and `<news-images>` nodes resulted from Data Sources respectively.
+
+#### b) Edited news.xsl
+
+After edit our `/workspace/pages/news.xsl` file, it will look like this:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:output method="xml"
+  doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
+  doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"
+  omit-xml-declaration="yes"
+  encoding="UTF-8"
+  indent="yes" />
+
+<xsl:template match="/">
+  <h1><xsl:value-of select="data/current-news/entry/title"/></h1>
+  <p><xsl:value-of select="data/current-news/entry/date"/></p>
+  <p><xsl:value-of select="data/current-news/entry/author/item"/></p>
+  <xsl:value-of select="data/current-news/entry/text"/>
+
+  <ul>
+    <xsl:for-each select="data/news-images/entry">
+      <li>
+        <img src="{//data/params/workspace}{image/@path}/{image/filename}" width="500" alt=""/>
+        <br/>
+        <xsl:value-of select="caption"/>
+        <br/>
+        <xsl:value-of select="credits"/>
+        <hr/>
+      </li>
+    </xsl:for-each>
+  </ul>
+</xsl:template>
+
+</xsl:stylesheet>
+```
+#### b) News page output
+
+Yey! We have our news page with all content from the system. The HTML output is this:
+
+```html
+<!DOCTYPE h1 PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<h1>Praesent dui lorem</h1><p>2014-11-02</p><p>Bernardo Dias da Cruz</p>Yey!
+
+Praesent dui lorem, efficitur in facilisis efficitur, congue vitae nulla. Morbi felis tellus, feugiat eget vulputate eu, sollicitudin in augue. Pellentesque quis magna at tellus dictum convallis eu in velit. Donec lorem ex, placerat id metus ut, placerat convallis ex. Aliquam vel massa erat. Suspendisse condimentum, dolor sit amet pharetra semper, ligula leo porttitor elit, a rhoncus lacus nibh vel tellus. Donec eget purus sagittis, volutpat sem in, finibus sem. Morbi est orci, congue in libero dapibus, lobortis tincidunt libero.
+
+Vestibulum nec facilisis augue. Morbi leo ipsum, gravida vitae dapibus nec, suscipit ac justo. Vestibulum tincidunt libero ac orci facilisis, vitae venenatis velit fringilla. Aenean quis ornare sapien. Sed eget condimentum nibh. Nulla ultricies turpis nisi, ut bibendum dui faucibus et. Aliquam mauris dui, placerat vitae turpis nec, laoreet viverra sapien. Integer sit amet semper tortor. Phasellus sollicitudin turpis eget felis mollis, a tincidunt dui vestibulum. Vestibulum lobortis risus ac nisi facilisis viverra.
+
+Proin eu sagittis diam. In feugiat egestas enim ac bibendum. Curabitur ullamcorper metus nec tellus aliquam, vel laoreet augue cursus. Suspendisse potenti. Praesent nunc nisi, hendrerit et condimentum quis, aliquam eu enim.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo metus a felis pharetra faucibus. Ut vel enim vitae arcu interdum elementum a a diam. Suspendisse potenti. Sed ac turpis a mi pulvinar consectetur eget sed elit.
+<ul>
+  <li><img src="http://localhost/mywebsite/workspace/uploads/images/10743381_919876464707201_1100897924_n.jpg" width="500" alt="" /><br />ubatuba<br />andré<hr /></li>
+  <li><img src="http://localhost/mywebsite/workspace/uploads/images/10749555_919876354707212_669708385_n.jpg" width="500" alt="" /><br />ubatuba<br />andré<hr /></li>
+  <li><img src="http://localhost/mywebsite/workspace/uploads/images/10643250_919876458040535_2051957555_n.jpg" width="500" alt="" /><br />ubatuba<br />andré<hr /></li>
+  <li><img src="http://localhost/mywebsite/workspace/uploads/images/1063075_919876374707210_1102205846_n.jpg" width="500" alt="" /><br />ubatuba<br />andré<hr /></li>
+  <li><img src="http://localhost/mywebsite/workspace/uploads/images/974711_919876548040526_1619447394_n.jpg" width="500" alt="" /><br />ubatuba<br />andré<hr /></li>
+</ul>
+```
+
+![news-simple-result](screenshots/28-news-simple-result.png)
+
+### III. Improving News page output
+
+But wait... Despite don't have any style (this is not a CSS tutorial, so we'll not do any style anyway), the content format is wrong!!! Well, kinda wrong, we need to go deeper in the XSLT now.
+
+Lets grab some XSLT templates from SymphonyCMS website [Utilities](http://www.getsymphony.com/download/xslt-utilities/) section. We need to:
+
+- Fix the date format;
+- Fix the text output, which the input was in Markdown and the output should be HTML;
+- Remove that inline width from images and make it resized in the server side.
+
+#### a) Fix the date format;
+
+http://www.getsymphony.com/download/xslt-utilities/view/20744/
+
+#### b) Fix the text output, which the input was in Markdown and the output should be HTML;
+
+http://www.getsymphony.com/download/xslt-utilities/view/20035/
+
+http://www.getsymphony.com/learn/articles/view/html-ninja-technique/
+
+#### c) Remove that inline width from images and make it resized in the server side.
+
+http://symphonyextensions.com/extensions/jit_image_manipulation/
+
+`git submodule add https://github.com/symphonycms/jit_image_manipulation.git extensions/jit_image_manipulation --recursive`
