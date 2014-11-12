@@ -111,6 +111,10 @@ The official repository of extensions can be found in the [extensions](http://ww
 
 ```
 TBP!!!
+├── bar.txt
+├── foo.txt
+└── my-folder
+    └── baz.txt
 ```
 
 
@@ -615,16 +619,123 @@ Lets grab some XSLT templates from SymphonyCMS website [Utilities](http://www.ge
 
 #### a) Fix the date format;
 
-http://www.getsymphony.com/download/xslt-utilities/view/20744/
+For the date we want to use something like `2nd November, 2014` instead `2014-11-02`. To acomplish this we'll need a format date template that can be found in the official website, in the XSLT Utilities section look for [Format Date/Time Advanced](http://www.getsymphony.com/download/xslt-utilities/view/20744/).
+
+Copy the raw code in `/workspace/utilities/format-date.xsl` and include this file in the `/workspace/pages/news.xsl`, to do this add `<xsl:import href="../utilities/format-date.xsl"/>` before `<xsl:output ... />` and in place of:
+
+
+```xml
+<p><xsl:value-of select="data/current-news/entry/date"/></p>
+```
+
+include the `format-date` template like the following:
+
+```xml
+<p>
+  <xsl:call-template name="format-date">
+    <xsl:with-param name="date" select="data/current-news/entry/date"/>
+    <xsl:with-param name="format" select="'%d;%ds; %m+;, %y+;'"/>
+  </xsl:call-template>
+</p>
+```
+
+(more instructions on how to use the template can be read in the utility file).
+
 
 #### b) Fix the text output, which the input was in Markdown and the output should be HTML;
 
-http://www.getsymphony.com/download/xslt-utilities/view/20035/
+HTML manipulation is something really nice to do with XSL, because HTML is XML compatible. To acomplish this Allen Chang wrote a good technique, explained better in the [HTML Ninja Technique](http://www.getsymphony.com/learn/articles/view/html-ninja-technique/) article.
 
-http://www.getsymphony.com/learn/articles/view/html-ninja-technique/
+We'll do the same as Format Date utility: create an utility file with the raw of [HTML Manipulation](http://www.getsymphony.com/download/xslt-utilities/view/20035/) and import in the page file.
+
+To use this template just change `<xsl:value-of select="data/current-news/entry/text"/>` to `<xsl:apply-templates select="data/current-news/entry/text/*" mode="html"/>`.
+
+In mywebsite we are already using the tag `h1` and in the sample above we also have a `h1` in the Markdown text. Ninja technique is powerful to manipulate all HTML content from XML. In the ninja template utility include the following template:
+
+```xml
+<xsl:template match="h1 | h2 | h3 | h4" mode="html" priority="1">
+  <xsl:param name="level" select="1" />
+  
+  <xsl:element name="h{substring-after(name(), 'h') + $level}">
+    <xsl:apply-templates select="* | @* | text()" mode="html" />
+  </xsl:element>
+</xsl:template>
+```
+and all headers will be changed 1 level down.
+
 
 #### c) Remove that inline width from images and make it resized in the server side.
 
-http://symphonyextensions.com/extensions/jit_image_manipulation/
+This one is a vere nice feature to have in a CMS, Symphony provides an extension that resize images and store in cache, and serve the resized image to the frontend. The extension is called [JIT Image Manipulation](http://symphonyextensions.com/extensions/jit_image_manipulation/) and futher reading [JIT Image Manipulation Concepts](http://www.getsymphony.com/learn/concepts/view/jit-image-manipulation/).
 
-`git submodule add https://github.com/symphonycms/jit_image_manipulation.git extensions/jit_image_manipulation --recursive`
+To install run `git submodule add https://github.com/symphonycms/jit_image_manipulation.git extensions/jit_image_manipulation --recursive` and install in the extension page in the administrator.
+
+In the news file change the line:
+
+```<img src="{//data/params/workspace}{image/@path}/{image/filename}" width="500" alt=""/>```
+
+to:
+
+```<img src="{//data/params/root}/image/1/500/0{image/@path}/{image/filename}" alt=""/>```
+
+---
+
+The `/workspace/pages/news.xsl` file will look like this now:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:import href="../utilities/format-date.xsl"/>
+<xsl:import href="../utilities/ninja.xsl"/>
+
+<xsl:output method="xml"
+  doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
+  doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"
+  omit-xml-declaration="yes"
+  encoding="UTF-8"
+  indent="yes" />
+
+<xsl:template match="/">
+  <h1><xsl:value-of select="data/current-news/entry/title"/></h1>
+  <p>
+    <xsl:call-template name="format-date">
+      <xsl:with-param name="date" select="data/current-news/entry/date"/>
+      <xsl:with-param name="format" select="'%d;%ds; %m+;, %y+;'"/>
+    </xsl:call-template>
+  </p>
+  <p><xsl:value-of select="data/current-news/entry/author/item"/></p>
+
+  <xsl:apply-templates select="data/current-news/entry/text/*" mode="html"/>
+
+  <ul>
+    <xsl:for-each select="data/news-images/entry">
+      <li>
+        <img src="{//data/params/root}/image/1/500/0{image/@path}/{image/filename}" alt=""/>
+        <br/>
+        <xsl:value-of select="caption"/>
+        <br/>
+        <xsl:value-of select="credits"/>
+        <hr/>
+      </li>
+    </xsl:for-each>
+  </ul>
+</xsl:template>
+
+</xsl:stylesheet>
+```
+
+
+06. Mywebsite ensemble
+-----
+
+The last extension we'll install in this tutorial is the [Export Ensemble](http://symphonyextensions.com/extensions/export_ensemble/), this is extension creates an instalable version of your Symphony website.
+
+I've installed this extension and exported the installation files for the __Mywebsite__ project. You can check it here https://github.com/bernardodiasc/symphony-tutorial/mywebsite.
+
+To install just put the files in your apache server public folder and open the URL in the browser, then you'll see the install wizard. After this is pretty much a well-known path from this tutorial.
+
+Hope you have enjoyed.
+
+Cheers.
