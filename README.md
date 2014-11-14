@@ -113,7 +113,7 @@ The official repository of extensions can be found in the [extensions](http://ww
 mywebsite
 ├── extensions (all extensions go here)
 ├── install (installation files, for security reasons you'll want to drop off this after installation)
-├── manifest (stuff, cache, log, temp files and the `config.php`, this is the kind of folder you include in the `.gitignore`)
+├── manifest (stuff, cache, log, temp files and the config.php, this is the kind of folder you include in the .gitignore)
 ├── symphony (the SymphonyCMS system files)
 └── workspace (here is where lives all the frontend fun, your project goes here and here you'll work mostly of the time)
     ├── data-sources (each data source is a php file from here)
