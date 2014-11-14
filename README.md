@@ -111,15 +111,15 @@ The official repository of extensions can be found in the [extensions](http://ww
 
 ```
 mywebsite
-├── extensions _(all extensions go here)_
-├── install _(installation files, for security reasons you'll want to drop off this after installation)_
-├── manifest _(stuff, cache, log, temp files and the `config.php`, this is the kind of folder you include in the `.gitignore`)_
-├── symphony _(the SymphonyCMS system files)_
-└── workspace _(here is where lives all the frontend fun, your project goes here and here you'll work mostly of the time)_
-    ├── data-sources _(each data source is a php file from here)_
-    ├── events _(each event is a php file from here)_
-    ├── pages _(each page is a xsl file from here)_
-    └── utilities _(you can use this folder to include all xsl templates useful in your project)_
+├── extensions (all extensions go here)
+├── install (installation files, for security reasons you'll want to drop off this after installation)
+├── manifest (stuff, cache, log, temp files and the `config.php`, this is the kind of folder you include in the `.gitignore`)
+├── symphony (the SymphonyCMS system files)
+└── workspace (here is where lives all the frontend fun, your project goes here and here you'll work mostly of the time)
+    ├── data-sources (each data source is a php file from here)
+    ├── events (each event is a php file from here)
+    ├── pages (each page is a xsl file from here)
+    └── utilities (you can use this folder to include all xsl templates useful in your project)
 ```
 
 
