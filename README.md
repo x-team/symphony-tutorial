@@ -13,7 +13,7 @@ Created by Allen Chang and Alistair Kearney for over a decade, Symphony is an Op
 
 _Before we start, make sure you understand that this is NOT about Symfony PHP Framework. They're not the same thing. Not even close. Ready?_ :)
 
-So lets get started!
+So let's get started!
 
 
 
