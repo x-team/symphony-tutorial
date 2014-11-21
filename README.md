@@ -1,7 +1,7 @@
 Symphony CMS 2.x.x Tutorial
 =====
 
-In this tutorial we'll build a fully administrable website from scratch with [Symphony CMS](http://www.getsymphony.com/).
+In this tutorial we'll build a fully administratable website from scratch with [Symphony CMS](http://www.getsymphony.com/).
 
 __getsymphony.com__
 
@@ -11,17 +11,17 @@ Created by Allen Chang and Alistair Kearney for over a decade, Symphony is an Op
 
 > Symphony's features strike a perfect balance: the power to do everything you need, the intelligence to do only what you need.
 
-_Before we start, make sure you understand that this is NOT a Symfony PHP Framework tutorial. Not even close. Ready?_ :)
+_Before we start, make sure you understand that this is NOT about Symfony PHP Framework. They're not the same thing. Not even close. Ready?_ :)
 
 So lets get started!
 
 
 
 
-01. Setup enviroment
+01. Setup environment
 -----
 
-To build with Symphony you'll need to make sure your server requirements match the following:
+To build with Symphony you'll need to make sure your server meets the following requirements:
 
 - PHP 5.3 or above
 - PHP's LibXML module, with the XSLT extension enabled (--with-xsl)
@@ -31,11 +31,10 @@ To build with Symphony you'll need to make sure your server requirements match t
 
 
 
-
 02. Symphony CMS install
 -----
 
-Install Symphony is very easy. Can be done even in old-fashioned way with .zip files. We'll do, of course, in the cool way, with Git.
+Installing Symphony is very easy. Can be done even in old-fashioned way with .zip files. We'll do, of course, in the cool way, with Git.
 
 ### I. Git clone
 
@@ -47,17 +46,17 @@ First step, go to [github.com/symphonycms/symphony-2](http://github.com/symphony
 
 With the system files cloned, now open the project in your browser [http://localhost/mywebsite/](http://localhost/mywebsite/).
 
-_We'll not use virtual hosts on this tutorial to keep it simple, so consider `http://localhost` as your Apache server root of public files, `/mywebsite` will be located there._
+_We'll not use virtual hosts on this tutorial to keep it simple, so with `http://localhost` as your Apache server root of public files, `/mywebsite` will be located there._
 
 ### II. Install wizard
 
-In the __mywebsite__ URL you'll see the install wizard, this page is pretty informative, go on, fill up the fields and click `Install Symphony`. Ah, you'll need a DB for this project, make sure you have created one with the MySQL tool of your choice.
+In the __mywebsite__ URL you'll see the install wizard. This page is pretty informative, so go on and fill out the fields. Finally click `Install Symphony`. You'll need a DB for this project, so make sure you have created one with the MySQL tool of your choice.
 
 ![localhost/mywebsite/install](screenshots/03-install.png)
 
 ### III. Done!
 
-All setup, ready to go!
+All set up, ready to go!
 
 ![localhost/mywebsite/install](screenshots/04-installed.png)
 
@@ -69,7 +68,7 @@ All setup, ready to go!
 
 ### I. Login
 
-Now go to your administration page, in this tutorial we'll use the default `/symphony` path, but as you saw in the wizard, you can choose any different path.
+Now go to your administration page. In this tutorial we'll use the default `/symphony` path, but as you saw in the wizard you can choose any different path.
 
 ![localhost/mywebsite/symphony](screenshots/05-login.png)
 
@@ -79,9 +78,9 @@ After login you'll see a pretty and clear administration page.
 
 ![localhost/mywebsite/symphony](screenshots/06-symphony-admin.png)
 
-In Symphony we have some very well defined concepts to create the awesomeness. I'll explain the basics, but you can read more in the official Symphony website [concepts](http://www.getsymphony.com/learn/concepts/).
+In Symphony we have some very well defined concepts to create the awesomeness. I'll explain the basics and you can read more in the official Symphony website [concepts](http://www.getsymphony.com/learn/concepts/).
 
-The developer tools are in these two sections on the right side of the main menu: __Blueprints__ and __System__. At this moment we really dont have any kind of content structure or pages. Like a blank piece of paper, we'll build based only on our project specification, and this is one big differential comparing to others CMSes.
+The developer tools are in these two sections on the right side of the main menu: __Blueprints__ and __System__. At this moment we really don't have any kind of content structure or pages. Like a blank piece of paper, we'll build based only on our project specification. This is one big difference in approach compared to other CMS's.
 
 ```
 - Blueprints
@@ -101,9 +100,9 @@ From Symphony [learn](http://www.getsymphony.com/learn/) page, the following inf
 
 ### III. Symphony Extensions
 
-It's important to understand that Symphony are meant to be simple, and have a powerfull core to be extended by the community. For this we have tons of extensions for any kind of need. The core install have the basics, which is enough to do the basic, but for our tutorial we'll go further. We'll install extensions on demand as the tutorial evolves.
+It's important to understand that Symphony is meant to be simple, and have a powerful core to be extended by the community. For this we have tonnes of extensions to fill any kind of need. The core install has the essentials, but for our tutorial we'll go further. We'll install extensions on demand as the tutorial progresses.
 
-The official repository of extensions can be found in the [extensions](http://www.getsymphony.com/download/extensions/) section in Symphony website. While the official website is great and full of resources, few years ago [@nickdunn](http://twitter.com/nickdunn) buit a better extension repository named [symphonyextensions.com](http://symphonyextensions.com/), we'll use this one in this tutorial.
+The official repository of extensions can be found in the [extensions](http://www.getsymphony.com/download/extensions/) section in Symphony website. While the official website is great and full of resources, a few years ago [@nickdunn](http://twitter.com/nickdunn) built a better extension repository named [symphonyextensions.com](http://symphonyextensions.com/). We'll use this one for the tutorial.
 
 ![symphony-extensions](screenshots/08-symphonyextensions.png)
 
@@ -128,7 +127,7 @@ mywebsite
 04. Mywebsite backend
 -----
 
-It's time to have some fun. First of all we need to understand what we are doing. Lets imagine a very simple news website, the content structure should look like this:
+It's time to have some fun. First of all we need to understand what we are doing. Lets imagine a very simple news website, with a content structure like this:
 
 ```
 - News
@@ -147,15 +146,15 @@ Go to `Blueprints > Sections > Create new` and create the __News__ section as th
 
 ![news-section](screenshots/09-create-news-section.png)
 
-At this moment we are not using any extension, so we just created the basic fields for the __News section__.
+At this moment we are not using any extensions so we just created the basic fields for the __News section__.
 
-Now we need the Markdown formatter for the __Text field__, on your terminal, in the project root, run:
+Now we need the Markdown formatter for the __Text field__. In your terminal, navigate to the project root and run:
 
 `git submodule add https://github.com/symphonycms/markdown.git extensions/markdown --recursive`
 
 _(more information about this extension here: [Markdown Text Formatter](http://symphonyextensions.com/extensions/markdown/))_
 
-Back to the administration go to `System > Extensions`, select `Markdown Text Formatter` and in the bottom right selectbox, choose `Install` then click `Apply`.
+Back in the administration go to `System > Extensions`, select `Markdown Text Formatter` and in the bottom right selectbox, choose `Install` then click `Apply`.
 
 ![install-markdown-extension](screenshots/10-install-markdown-extension.png)
 
@@ -165,27 +164,27 @@ Go back to `Blueprints > Sections`, click on `News` and set the `Text Formatter`
 
 #### b) Filling News section with sample content
 
-At this moment you already see the newly created section in the left side on main menu. To proceed in the development of this tutorial we'll create some content in that section.
+At this moment you already see the newly created section in the left side on main menu. Next we'll create some content in that section.
 
-Go to `Content > News`, you'll see an empty list of entries. That's fine, click on the green button `Create New`.
+Go to `Content > News` and you'll see an empty list of entries. Click on the green button `Create New`.
 
 ![creating-content](screenshots/12-creating-content.png)
 
-The greatest thing of Symphony is the administration interface, it's really simple!
+By now you'll be starting to understand why I love the Symphony administration interface: it's really simple!
 
 ![content-created](screenshots/13-content-created.png)
 
-After creating a few entries with sample content, you'll be able to see the entries list and sort as you want. What you see here is unrelated to frontend, as we'll see soon.
+After creating a few entries with sample content you'll be able to see the entries list and sort entries as you want. This doesn't affect anything on the frontend, we'll be getting to that soon.
 
 ![news-section](screenshots/14-news-section.png)
 
 #### c) Creating the Images Section (linked sections)
 
-You probably noticed that I didn't included any image field in the __News section__. If yes, cool, you are paying attention :)
+Did you notice that I didn't include any image field in the __News section__. You did? Cool, you are paying attention :)
 
-So lets create a new section called __Images__, with some meta information like __caption__ and __credits__. But first we need to create a new folder to upload all image files of this section. On your terminal run `mkdir workspace/uploads && mkdir workspace/uploads/images`.
+So lets create a new section called __Images__ with some meta information like __caption__ and __credits__. But first we need to create a new folder to upload all image files of this section. On your terminal run `mkdir workspace/uploads && mkdir workspace/uploads/images`.
 
-For this section we'll need 2 more extensions, to install, run:
+For this section we'll need 2 more extensions. To install, run:
 
 `git submodule add https://github.com/symphonycms/selectbox_link_field.git extensions/selectbox_link_field --recursive`
 
@@ -195,63 +194,74 @@ _(more information at [Selectbox Link Field](http://symphonyextensions.com/exten
 
 _(more information at [Order Entries](http://symphonyextensions.com/extensions/order_entries/))_
 
-Now go to `System > Extensions` and install both. The __Selectbox Link Field__ will provide a new kind of field that is used to link one section to another. The __Order Entries__ is also a new field type to allow user sort entries by dragging the lines in the entries list.
+Now go to `System > Extensions` and install both. The __Selectbox Link Field__ will provide a new kind of field that is used to link one section to another. The __Order Entries__ is also a new field type to allow sorting of entries by dragging the lines in the entries list.
 
 ![install-sbl-and-order-extensions](screenshots/15-install-sbl-and-order-extensions.png)
 
-Now go to `Blueprints > Sections` and `Create New` section as the following:
+Now go to `Blueprints > Sections` and `Create New` section:
 
 ![creating-images-section](screenshots/16-creating-images-section.png)
 
-After create the __Images sections__, go to `Content > News` and spot the new column called `Images` on the right side. Click on the `0 →` link of any entry to create sample content linked to that entry.
+After creating the __Images sections__, go to `Content > News`. See the new column called `Images` on the right side? Click on the `0 →` link of any entry to create sample content linked to that entry.
 
 ![linked-section](screenshots/17-linked-section.png)
 
 #### d) Filling Images section with sample content
 
-Create content is something really simple, as we saw before. No big deal here too.
+Creating content is really straightforward, as we saw before. No big deal here either.
 
-After creating some sample content, you'll be able to see in the __News Section__ entries list, in the __Images__ column something like `5 →` and when you click in this link you'll go to __Image Section__ entries list, but filtered only with related entries.
+After creating some sample content, take a look in the __Images__ column of the __News Section__ entries list. You'll see something like `5 →`. Clicking this link takes you to the __Image Section__ entries list, filtered to display only related entries.
 
 ![images-section](screenshots/18-images-section.png)
 
 ### II. Working with Data Sources
 
-So far so good! At this point we already have a complete administration interface for CRUD/BREAD stuff. Now we'll jump in Data Sources!
+So far so good! At this point we already have a complete administration interface for CRUD/BREAD stuff. Now we'll jump into Data Sources!
 
 Data Sources are filters to fetch entries from sections on demand. To create a new Data Source go to `Blueprints > Data Sources > Create New`.
 
-For this example we need to know what we want in the frontend (getting there!). So, lets imagine the following specs: In the homepage of __mywebsite__ I want to see a list of all news with links for the news page. In the list, news should be sorted by date desc with date and title. In the news page I want to see all data of that news.
+Before going further here we first need an idea of we want in the frontend. So lets imagine the following specs: In the homepage of __mywebsite__ I want to see a list of all news with links for the news page. In the list, news should be sorted by date (newest first) with date and title. In the news page I want to see all data of that news.
 
-To accomplish this we'll need a few Data Sources, go to `Blueprints > Data Sources > Create New` and create the following:
+To accomplish this we'll need a few Data Sources. Go to `Blueprints > Data Sources > Create New` and create the following:
 
 - List News (fetch all News, sorted by date desc)
 - Current News (fetch only the current news)
-- News Images (fetch all images of the current news, sorted by sord order field desc)
+- News Images (fetch all images of the current news, sorted by sort order field desc)
 
 #### a) List News
 
-Select source __News__, sort by date desc, disable pagination to fetch all entries, select only title and date fields to output.
+- Select source __News__ and sort by date desc.
+- Disable pagination to fetch all entries.
+- Select only title and date fields to output.
 
 ![list-news-datasource](screenshots/19-list-news-datasource.png)
 
 #### b) Current News
 
-Select source __News__, set condition with required param `$title`, if this condition return false, redirect to a 404 page. Filter by the __Title field__ with `$title` param. Disable pagination to fetch all entries, select only title, date, author and text (formatted) to output. Also output `$ds-current-news.system-id` param with the results.
+- Select source __News__ and set condition with required param `$title`.
+- If this condition return false redirect to a 404 page.
+- Filter by the __Title field__ with `$title` param.
+- Disable pagination to fetch all entries.
+- Select only title, date, author and text (formatted) to output.
+- Also output `$ds-current-news.system-id` param with the results.
 
-_We'll see where `$title` param come from in the next topic!_
+_Not sure where the `$title` param comes from? Hang in there, we'll see in the next section!_
 
 ![current-news-datasource](screenshots/20-current-news-datasource.png)
 
 #### c) News Images
 
-Select source __Images__, Filter by the __News field__ (the Selectbox link field) with the `$ds-current-news.system-id` param from the __Current News__ Data Source, this is called chaining datasources. Sort by __Sord order field__ desc, disable pagination to fetch all entries, select only caption, credits and image fields to output.
+- Select source __Images__.
+- Filter by the __News field__ (the Selectbox link field) with the `$ds-current-news.system-id` param from the __Current News__ Data Source. This is called chaining datasources.
+- Sort by __Sort order field__ desc.
+- Disable pagination to fetch all entries.
+- Select only caption, credits and image fields to output.
 
 ![news-images-datasource](screenshots/21-news-images-datasource.png)
 
 #### d) List of Data Sources
 
-So, this is the `Blueprints > Data Sources` now.
+This is how `Blueprints > Data Sources` looks now:
 
 ![list-of-datasources](screenshots/22-datasources.png)
 
@@ -261,19 +271,19 @@ Now it's time to create the routes and attach data sources. Following the specs 
 
 #### a) Homepage
 
-Lets create the __Homepage__, this page is the only one with __Type__ `index`. To do this, go to `Blueprints > Pages`. While creating we'll also attach __List News__ Data Source on this page.
+Lets create the __Homepage__ first. This page is the only one with __Type__ `index`. To do this, go to `Blueprints > Pages`. While creating we'll also attach __List News__ Data Source on this page.
 
 ![creating-homepage](screenshots/23-creating-homepage.png)
 
 #### b) News
 
-When creating the __News page__ we'll define the __Parameters__ with `title` value, this param is the `$title` used in the __Current News__ Data Source. We'll also attach __Current News__ and __News Images__ Data Sources in this page.
+When creating the __News page__ we'll define the __Parameters__ with `title` value. This param is the `$title` used in the __Current News__ Data Source. We'll also attach __Current News__ and __News Images__ Data Sources in this page.
 
 ![creating-news](screenshots/24-creating-news.png)
 
 #### c) List of Pages
 
-So, this is the `Blueprints > Pages` now.
+Now we have `Blueprints > Pages` looking like this:
 
 ![list-of-pages](screenshots/25-pages.png)
 
@@ -283,11 +293,11 @@ So, this is the `Blueprints > Pages` now.
 05. Mywebsite frontend
 -----
 
-Here we are, lets start our frontend!
+Now lets start our frontend!
 
-Symphony works with XML to transport all data retrieved by the Data Sources and transform in HTMl using XSLT. XSLT is a template engine language very easy to learn, I'll show you the basics.
+Symphony retrieves data from the Data Sources as XML and transforms it to HTML using XSLT. XSLT is a template engine language that is very easy to learn once you get the basics. I'll show you how to get started.
 
-First thing we need now is install the [Debug Devkit](http://symphonyextensions.com/extensions/debugdevkit/) extensions to see behing the hood of the pages.
+First thing we need now is to install the [Debug Devkit](http://symphonyextensions.com/extensions/debugdevkit/) extensions to see what's under the hood of these pages.
 
 `git submodule add https://github.com/symphonycms/debugdevkit.git extensions/debugdevkit --recursive`
 
@@ -295,7 +305,7 @@ First thing we need now is install the [Debug Devkit](http://symphonyextensions.
 
 Now open your homepage [`http://localhost/mywebsite`](http://localhost/mywebsite)!
 
-You'll see a blank page just an `<h1>` with the page title, that's perfect. Open the `/workspace/pages/homepage.xsl`, you'll see the following:
+You'll see a blank page with just an `<h1>` for the page title. Perfect. Open the `/workspace/pages/homepage.xsl` and you'll see the following:
 
 #### a) Default homepage.xsl
 
@@ -318,7 +328,7 @@ You'll see a blank page just an `<h1>` with the page title, that's perfect. Open
 </xsl:stylesheet>
 ```
 
-#### b) Homepage ?debug
+#### b) Homepage `?debug`
 
 Now open the debug devkit adding `?debug` in the URL [`http://localhost/mywebsite/?debug`](http://localhost/mywebsite/?debug), and in the XML tab you'll see the following:
 
@@ -385,7 +395,7 @@ Now open the debug devkit adding `?debug` in the URL [`http://localhost/mywebsit
 
 #### c) Edited homepage.xsl
 
-What matter here is the `<list-news>` node, which is the result of the [List News](#a-list-news) Data Source. Now we'll make a list with this data using __XPath__ in the `/workspace/pages/homepage.xsl`, and the file will look like this:
+What matters here is the `<list-news>` node, which is the result of the [List News](#a-list-news) Data Source. Now we'll make a list with this data using __XPath__ in the `/workspace/pages/homepage.xsl`, and the file will look like this:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -441,7 +451,7 @@ And the HTML output will be:
 
 ### II. News page
 
-When click on any link you go to the __News__ page, which is the file `/workspace/pages/news.xsl`. First lets see what XML we have attached in this page, click on any link and add `?debug` in the URL [`http://localhost/mywebsite/news/vestibulum-nec-facilisis-augue/?debug`](http://localhost/mywebsite/news/vestibulum-nec-facilisis-augue/?debug):
+Clicking on any of these links takes you to the __News__ page, which is the file `/workspace/pages/news.xsl`. First lets see what XML we have attached in this page. Click on any link and add `?debug` in the URL [`http://localhost/mywebsite/news/vestibulum-nec-facilisis-augue/?debug`](http://localhost/mywebsite/news/vestibulum-nec-facilisis-augue/?debug):
 
 #### a) News page ?debug
 
@@ -546,11 +556,11 @@ When click on any link you go to the __News__ page, which is the file `/workspac
 </data>
 ```
 
-Spot the `<ds-current-news.system-id>` inside `<params>`, that node have a list with all entries IDs resulted in the __Current News__ Data Source, this is the param we used to link and filter the __News Images__ Data Source. Below in the XML you'll see `<current-news>` and `<news-images>` nodes resulted from Data Sources respectively.
+Spot the `<ds-current-news.system-id>` inside `<params>`? That node has a list with all entry IDs from the __Current News__ Data Source. This is the param we used to link and filter the __News Images__ Data Source. Below in the XML you'll see `<current-news>` and `<news-images>` nodes resulted from Data Sources respectively.
 
 #### b) Edited news.xsl
 
-After edit our `/workspace/pages/news.xsl` file, it will look like this:
+After editing our `/workspace/pages/news.xsl` file it will look like this:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -588,7 +598,7 @@ After edit our `/workspace/pages/news.xsl` file, it will look like this:
 ```
 #### b) News page output
 
-Yey! We have our news page with all content from the system. The HTML output is this:
+Yey! We have our news page with all content from the system. The HTML output contains just what you would expect:
 
 ```html
 <!DOCTYPE h1 PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -614,17 +624,19 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo metus a 
 
 ### III. Improving News page output
 
-But wait... Despite don't have any style (this is not a CSS tutorial, so we'll not do any style anyway), the content format is wrong!!! Well, kinda wrong, we need to go deeper in the XSLT now.
+But wait... Despite being unstyled (this is not a CSS tutorial, so we'll skip that part for now), the content format is wrong!!! Well, kinda wrong, we need to go deeper into the XSLT to see how we can make it better.
 
-Lets grab some XSLT templates from SymphonyCMS website [Utilities](http://www.getsymphony.com/download/xslt-utilities/) section. We need to:
+Let's grab some XSLT templates from SymphonyCMS website [Utilities](http://www.getsymphony.com/download/xslt-utilities/) section. We need to:
 
-- Fix the date format;
-- Fix the text output, which the input was in Markdown and the output should be HTML;
-- Remove that inline width from images and make it resized in the server side.
+- Fix the date format,
+- Fix the text output (we should see HTML instead of raw Markdown),
+- Remove the inline width from images and resize it on the server side.
 
-#### a) Fix the date format;
+Let's handle those things one by one now:
 
-For the date we want to use something like `2nd November, 2014` instead `2014-11-02`. To acomplish this we'll need a format date template that can be found in the official website, in the XSLT Utilities section look for [Format Date/Time Advanced](http://www.getsymphony.com/download/xslt-utilities/view/20744/).
+#### a) Fix the date format
+
+For the date we want to use something like `2nd November, 2014` instead `2014-11-02`. To accomplish this we'll need a date format template that can be found in the official website. In the __XSLT Utilities__ section look for [Format Date/Time Advanced](http://www.getsymphony.com/download/xslt-utilities/view/20744/).
 
 Copy the raw code in `/workspace/utilities/format-date.xsl` and include this file in the `/workspace/pages/news.xsl`, to do this add `<xsl:import href="../utilities/format-date.xsl"/>` before `<xsl:output ... />` and in place of:
 
@@ -647,15 +659,15 @@ include the `format-date` template like the following:
 (more instructions on how to use the template can be read in the utility file).
 
 
-#### b) Fix the text output, which the input was in Markdown and the output should be HTML;
+#### b) Fix the text output (convert Markdown to HTML)
 
-HTML manipulation is something really nice to do with XSL, because HTML is XML compatible. To acomplish this Allen Chang wrote a good technique, explained better in the [HTML Ninja Technique](http://www.getsymphony.com/learn/articles/view/html-ninja-technique/) article.
+HTML manipulation is something really nice to do with XSL, because HTML is XML compatible. To accomplish this Allen Chang wrote a good technique, which is explained better in the [HTML Ninja Technique](http://www.getsymphony.com/learn/articles/view/html-ninja-technique/) article.
 
-We'll do the same as Format Date utility: create an utility file with the raw of [HTML Manipulation](http://www.getsymphony.com/download/xslt-utilities/view/20035/) and import in the page file.
+We'll do the same as we did with the __Format Date__ utility: create a utility file with [HTML Manipulation](http://www.getsymphony.com/download/xslt-utilities/view/20035/) and import into the page file.
 
 To use this template just change `<xsl:value-of select="data/current-news/entry/text"/>` to `<xsl:apply-templates select="data/current-news/entry/text/*" mode="html"/>`.
 
-In mywebsite we are already using the tag `h1` and in the sample above we also have a `h1` in the Markdown text. Ninja technique is powerful to manipulate all HTML content from XML. In the ninja template utility include the following template:
+In mywebsite we are already using the tag `h1` and in the sample above we also have a `h1` in the Markdown text. The "Ninja technique" is a powerful way to manipulate all HTML content from XML. In the ninja template utility include the following template:
 
 ```xml
 <xsl:template match="h1 | h2 | h3 | h4" mode="html" priority="1">
@@ -666,14 +678,15 @@ In mywebsite we are already using the tag `h1` and in the sample above we also h
   </xsl:element>
 </xsl:template>
 ```
+
 and all headers will be changed 1 level down.
 
 
-#### c) Remove that inline width from images and make it resized in the server side.
+#### c) Remove the inline width from images and resize it on the server side.
 
-This one is a vere nice feature to have in a CMS, Symphony provides an extension that resize images and store in cache, and serve the resized image to the frontend. The extension is called [JIT Image Manipulation](http://symphonyextensions.com/extensions/jit_image_manipulation/) and futher reading [JIT Image Manipulation Concepts](http://www.getsymphony.com/learn/concepts/view/jit-image-manipulation/).
+This is a very nice feature to have in a CMS, and Symphony provides an extension that resize images and stores the result in cache, serving the resized image to the frontend. The extension is called [JIT Image Manipulation](http://symphonyextensions.com/extensions/jit_image_manipulation/). You can read more about it at [JIT Image Manipulation Concepts](http://www.getsymphony.com/learn/concepts/view/jit-image-manipulation/).
 
-To install run `git submodule add https://github.com/symphonycms/jit_image_manipulation.git extensions/jit_image_manipulation --recursive` and install in the extension page in the administrator.
+To install run `git submodule add https://github.com/symphonycms/jit_image_manipulation.git extensions/jit_image_manipulation --recursive` and install in the extension page in the administration.
 
 In the news file change the line:
 
@@ -735,9 +748,9 @@ The `/workspace/pages/news.xsl` file will look like this now:
 06. Mywebsite ensemble
 -----
 
-The last extension we'll install in this tutorial is the [Export Ensemble](http://symphonyextensions.com/extensions/export_ensemble/), this is extension creates an instalable version of your Symphony website.
+The last extension we'll install in this tutorial is the [Export Ensemble](http://symphonyextensions.com/extensions/export_ensemble/). This extension creates an installable version of your Symphony website.
 
-I've installed this extension and exported the installation files for the __Mywebsite__ project. You can check it here https://github.com/bernardodiasc/symphony-tutorial/mywebsite.
+I've installed this extension and exported the installation files for the __Mywebsite__ project. You can check it here <https://github.com/bernardodiasc/symphony-tutorial/mywebsite>.
 
 To install just put the files in your apache server public folder and open the URL in the browser, then you'll see the install wizard. After this is pretty much a well-known path from this tutorial.
 
