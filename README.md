@@ -3,8 +3,6 @@ PHP Content Management System
 
 In this tutorial you'll learn how to install and build a administrable site from scratch.
 
-<!-- /MarkdownTOC -->
-
 - [01. Setup environment](#01-setup-environment)
 - [02. Symphony CMS install](#02-symphony-cms-install)
   - [I. Git clone](#i-git-clone)
@@ -27,9 +25,7 @@ In this tutorial you'll learn how to install and build a administrable site from
 - [07. Your turn!](#07-your-turn)
 - [About Symphony CMS](#about-symphony-cms)
 
-<!-- /MarkdownTOC -->
-
-_Before we start, make sure you understand that __SymphonyCMS__ is NOT about __Symfony PHP Framework__. They're not the same thing. Ready?_ :)
+_Before we start, make sure you understand that **SymphonyCMS** is NOT about **Symfony PHP Framework**. They're not the same thing. Ready?_ :)
 
 The result of this tutorial can be done in ~1h of development.
 
