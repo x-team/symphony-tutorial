@@ -748,7 +748,9 @@ The `/workspace/pages/news.xsl` file will look like this now:
 06. Mywebsite ensemble
 -----
 
-The last extension we'll install in this tutorial is the [Export Ensemble](http://symphonyextensions.com/extensions/export_ensemble/). This extension creates an installable version of your Symphony website.
+![news-improved-result](screenshots/29-news-improved-result.png)
+
+The last extension we'll install in this tutorial is the [Export Ensemble](http://symphonyextensions.com/extensions/export_ensemble/), this is extension creates an installable version of your Symphony website.
 
 I've installed this extension and exported the installation files for the __Mywebsite__ project. You can check it here <https://github.com/bernardodiasc/symphony-tutorial/mywebsite>.
 
