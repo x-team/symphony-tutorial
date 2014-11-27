@@ -1,7 +1,7 @@
 PHP Content Management System
 =====
 
-In this tutorial you'll learn how to install and build a administrable site from scratch.
+In this tutorial you'll learn how to install and build a administrable site from scratch. This tool provides an extensible way to improve itself and deliver the data to a template layer. The template layer is the frontend of your project, and there is all code!
 
 - [01. Setup environment](#01-setup-environment)
 - [02. Symphony CMS install](#02-symphony-cms-install)
@@ -25,9 +25,7 @@ In this tutorial you'll learn how to install and build a administrable site from
 - [07. Your turn!](#07-your-turn)
 - [About Symphony CMS](#about-symphony-cms)
 
-_Before we start, make sure you understand that **SymphonyCMS** is NOT about **Symfony PHP Framework**. They're not the same thing. Ready?_ :)
-
-The result of this tutorial can be done in ~1h of development.
+_Before we start, make sure you understand that **Symphony CMS** is NOT about **Symfony PHP Framework**. They're not the same thing. Ready?_ :)
 
 Open an issue if you have any question. Good reading!
 
@@ -41,14 +39,15 @@ To build with Symphony you'll need to make sure your server meets the following 
 - PHP's LibXML module, with the XSLT extension enabled (--with-xsl)
 - MySQL 5.0 or above
 - An Apache webserver (can be used with others, but we'll focus on Apache server in this tutorial)
-- Apache's mod_rewrite module or equivalent
+- Apache's mod_rewrite module
+
 
 
 
 02. Symphony CMS install
 -----
 
-Installing Symphony is very easy. Can be done even in old-fashioned way with .zip files. We'll do, of course, in the cool way, with Git.
+Installing Symphony is very easy. Can be done even in old-fashioned way with .zip files. We'll do in the cool way, with Git.
 
 ### I. Git clone
 
@@ -780,7 +779,7 @@ Cheers.
 07. Your turn!
 -----
 
-In this tutorial you've learnd to setup the most basic site, grab the __mywebsite__ ensemble on this tutorial and build something upon it.
+In this tutorial you've learnd to setup the most basic site, now grab the __mywebsite__ ensemble on this tutorial and build something upon it.
 
 You are welcome to make a fork and open a PR to include your own ideas :)
 
@@ -797,6 +796,6 @@ __[getsymphony.com](http://www.getsymphony.com/)__
 
 ![getsymphony.com](screenshots/01-getsymphony.com.png)
 
-Created by Allen Chang and Alistair Kearney for over a decade, Symphony is an Open Source XSLT-based CMS built in PHP and MySQL. But don't worry about programming languages yet, this CMS is very accessible even for designers. We'll focus our attention on the amazing concept of this tool and how easy and quick you can build an entire website with, wait for it, full control of your frontend.
+Created by Allen Chang and Alistair Kearney for over a decade, Symphony is an Open Source XSLT-based CMS built in PHP and MySQL. A CMS that provides you a full control of the project frontend.
 
 
