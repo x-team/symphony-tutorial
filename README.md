@@ -5,6 +5,8 @@ In this tutorial you'll learn how to install and build a administrable site from
 
 Discuss: http://www.getsymphony.com/discuss/thread/109020/
 
+[How to use this project](#07-your-turn)
+
 - [01. Setup environment](#01-setup-environment)
 - [02. Symphony CMS install](#02-symphony-cms-install)
   - [I. Git clone](#i-git-clone)

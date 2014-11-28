@@ -3,29 +3,30 @@ Sistema de Gerenciamento de Conteúdo PHP
 
 Neste tutorial você aprenderá como instalar e construir um site administrável a partir do início. Essa ferramenta oferece uma forma extensível de melhorar a si mesma e entregar os dados para a camada de template. A camada de template é o frontend do seu projeto, e lá é só código!
 
-Discuss: http://www.getsymphony.com/discuss/thread/109020/
+Discussão: http://www.getsymphony.com/discuss/thread/109020/
 
+[Como usar este projeto](#07-sua-vez)
 
-- [01. Setup do ambiente](#01-setup-environment)
-- [02. Instalação do Symphony CMS](#02-symphony-cms-install)
+- [01. Setup do ambiente](#01-setup-do-ambiente)
+- [02. Instalação do Symphony CMS](#02-instalacao-do-symphony-cms)
   - [I. Git clone](#i-git-clone)
-  - [II. Assistente de instalação](#ii-install-wizard)
-  - [III. Ok!](#iii-done)
-- [03. Administração do Symphony ](#03-symphony-administration)
+  - [II. Assistente de instalação](#ii-assistente-de-instalacao)
+  - [III. Ok!](#iii-ok)
+- [03. Administração do Symphony](#03-administracao-do-symphony)
   - [I. Login](#i-login)
-  - [II. Página administrativa](#ii-administration-page)
-  - [III. Extensões Symphony](#iii-symphony-extensions)
-  - [IV. Estrutura de arquivos](#iv-files-structure)
+  - [II. Página administrativa](#ii-pagina-administrativa)
+  - [III. Extensões Symphony](#iii-extensoes-symphony)
+  - [IV. Estrutura de arquivos](#iv-estruturas-de-arquivos)
 - [04. Mywebsite backend](#04-mywebsite-backend)
-  - [I. Trabalhando com seções](#i-working-with-sections)
-  - [II. Trabalhando com data-sources](#ii-working-with-data-sources)
-  - [III. Trabalhando com páginas](#iii-working-with-pages)
+  - [I. Trabalhando com seções](#i-trabalhando-com-secoes)
+  - [II. Trabalhando com data-sources](#ii-trabalhando-com-data-sources)
+  - [III. Trabalhando com páginas](#iii-trabalhando-com-paginas)
 - [05. Mywebsite frontend](#05-mywebsite-frontend)
   - [I. Homepage](#i-homepage)
-  - [II. Nova Página](#ii-news-page)
-  - [III. Melhorando saídas de páginas novas](#iii-improving-news-page-output)
+  - [II. Nova Página](#ii-nova-pagina)
+  - [III. Melhorando a marcação HTML](#iii-melhorando-o-resultado)
 - [06. Conjunto Mywebsite](#06-mywebsite-ensemble)
-- [07. Sua vez!](#07-your-turn)
+- [07. Sua vez!](#07-sua-vez)
 - [Sobre Symphony CMS](#about-symphony-cms)
 
 
@@ -635,7 +636,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo metus a 
 
 ![news-simple-result](screenshots/28-news-simple-result.png)
 
-### III. Melhorando a saída da Página de Notícias
+### III. Melhorando o resultado
 
 Mas espere... A menos que esteja sem estilos (este não é um tutorial CSS, então vamos pular esta parte por enquanto), o formato do conteúdo está errado!!! Bem, meio errado, precisamos aprofundar no XSLT para ver como podemos melhorar isto.
 

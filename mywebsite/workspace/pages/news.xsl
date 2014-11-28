@@ -13,29 +13,28 @@
 	indent="yes" />
 
 <xsl:template match="/">
-	<h1><xsl:value-of select="data/current-news/entry/title"/></h1>
-	<p>
+	<!-- dont do css inline kids! -->
+	<header style="float: left; width: 80%;">
+		<h1><xsl:value-of select="data/current-news/entry/title"/></h1>
+		<p>
 		<xsl:call-template name="format-date">
-			<xsl:with-param name="date" select="data/current-news/entry/date"/>
-			<xsl:with-param name="format" select="'%d;%ds; %m+;, %y+;'"/>
+		  <xsl:with-param name="date" select="data/current-news/entry/date"/>
+		  <xsl:with-param name="format" select="'%d;%ds; %m+;, %y+;'"/>
 		</xsl:call-template>
-	</p>
-	<p><xsl:value-of select="data/current-news/entry/author/item"/></p>
+		</p>
+		<p><xsl:value-of select="data/current-news/entry/author/item"/></p>
+	</header>
 
-	<xsl:apply-templates select="data/current-news/entry/text/*" mode="html"/>
+	<article style="float: left; width: 80%;">
+		<xsl:apply-templates select="data/current-news/entry/text/*" mode="html"/>
+	</article>
 
-	<ul>
+	<aside style="float: right; width: 20%;">
 		<xsl:for-each select="data/news-images/entry">
-			<li>
-				<img src="{//data/params/root}/image/1/500/0{image/@path}/{image/filename}" alt=""/>
-				<br/>
-				<xsl:value-of select="caption"/>
-				<br/>
-				<xsl:value-of select="credits"/>
-				<hr/>
-			</li>
+		    <img src="{//data/params/root}/image/1/190/0{image/@path}/{image/filename}" alt=""/>
+		    <span><xsl:value-of select="caption"/>, photo: <xsl:value-of select="credits"/></span>
 		</xsl:for-each>
-	</ul>
+	</aside>
 </xsl:template>
 
 </xsl:stylesheet>
