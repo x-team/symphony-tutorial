@@ -1,7 +1,7 @@
 Sistema de Gerenciamento de Conteúdo PHP 
 =====
 
-Neste tutorial você aprenderá como instalar e construir um site administrável a partir do scratch. Essa ferramenta oferece uma forma extensível de melhorar a si mesma e entregar os dados para a camada de template. A camada de template é o frontend do seu projeto, e lá é só código!
+Neste tutorial você aprenderá como instalar e construir um site administrável a partir do início. Essa ferramenta oferece uma forma extensível de melhorar a si mesma e entregar os dados para a camada de template. A camada de template é o frontend do seu projeto, e lá é só código!
 
 Discuss: http://www.getsymphony.com/discuss/thread/109020/
 
