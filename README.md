@@ -3,6 +3,8 @@ PHP Content Management System
 
 In this tutorial you'll learn how to install and build a administrable site from scratch. This tool provides an extensible way to improve itself and deliver the data to a template layer. The template layer is the frontend of your project, and there is all code!
 
+Discuss: http://www.getsymphony.com/discuss/thread/109020/
+
 - [01. Setup environment](#01-setup-environment)
 - [02. Symphony CMS install](#02-symphony-cms-install)
   - [I. Git clone](#i-git-clone)
@@ -25,8 +27,6 @@ In this tutorial you'll learn how to install and build a administrable site from
 - [07. Your turn!](#07-your-turn)
 - [About Symphony CMS](#about-symphony-cms)
 
-_Before we start, make sure you understand that **Symphony CMS** is NOT about **Symfony PHP Framework**. They're not the same thing. Ready?_ :)
-
 Open an issue if you have any question. Good reading!
 
 
@@ -41,13 +41,16 @@ To build with Symphony you'll need to make sure your server meets the following 
 - An Apache webserver (can be used with others, but we'll focus on Apache server in this tutorial)
 - Apache's mod_rewrite module
 
+> For Windows, try [XAMPP](https://www.apachefriends.org/index.html), will have all you need in the default install.
 
 
 
 02. Symphony CMS install
 -----
 
-Installing Symphony is very easy. Can be done even in old-fashioned way with .zip files. We'll do in the cool way, with Git.
+_Before we start, make sure you understand that **Symphony CMS** is NOT about **Symfony PHP Framework**. They're not the same thing. Ready?_ :)
+
+Installing Symphony is very easy. In this tutorial we'll use `git` to handle all dependencies, but this task also works with `.zip` files (check out here http://www.getsymphony.com/download/, for a blank install remove the `/workspace` folder before the installation).
 
 ### I. Git clone
 
@@ -55,7 +58,7 @@ First step, go to [github.com/symphonycms/symphony-2](http://github.com/symphony
 
 ![github.com/symphonycms/symphony-2](screenshots/02-github.symphony.png)
 
-`git clone --depth=1 https://github.com/symphonycms/symphony-2.git mywebsite`
+`git clone https://github.com/symphonycms/symphony-2.git mywebsite`
 
 With the system files cloned, now open the project in your browser [http://localhost/mywebsite/](http://localhost/mywebsite/).
 

@@ -1,7 +1,10 @@
 Sistema de Gerenciamento de Conteúdo PHP 
 =====
 
-Neste tutorial você aprenderá como instalar e construir um site administrável a partir do scratch.
+Neste tutorial você aprenderá como instalar e construir um site administrável a partir do scratch. Essa ferramenta oferece uma forma extensível de melhorar a si mesma e entregar os dados para a camada de template. A camada de template é o frontend do seu projeto, e lá é só código!
+
+Discuss: http://www.getsymphony.com/discuss/thread/109020/
+
 
 - [01. Setup do ambiente](#01-setup-environment)
 - [02. Instalação do Symphony CMS](#02-symphony-cms-install)
@@ -25,7 +28,6 @@ Neste tutorial você aprenderá como instalar e construir um site administrável
 - [07. Sua vez!](#07-your-turn)
 - [Sobre Symphony CMS](#about-symphony-cms)
 
-_Antes de começar, tenha certeza de que entende que **SymphonyCMS** NÃO é a mesma coisa que **Symphony PHP Framework**. Está pronto?_ :)
 
 O resultado deste tutorial pode ser visto no ~1h do desenvolvimento.
 
@@ -43,11 +45,16 @@ Para programar com Symphony você precisa se certificar que seu servidor atende 
 - Um servidor Apache (outros podem ser usados, mas manteremos o foco no Apache neste tutorial)
 - Módulo mod_rewrite do PHP ou equivalente
 
+> Para Windows, tente [XAMPP](https://www.apachefriends.org/index.html), vai ter tudo que você precisa na instalação padrão.
+
+
 
 02. Instalação do Symphony CMS
 -----
 
-Instalar o Symphony é muito fácil. Pode ser feita de maneira arcaica com arquivos .zip. Nós, claro, faremos de um jeito mais legal, com Git.
+_Antes de começar, tenha certeza de que entendeu que **SymphonyCMS** NÃO é a mesma coisa que **Symfony PHP Framework**. Está pronto?_ :)
+
+Instalar o Symphony é muito fácil. Nesse tutorial nós usaremos `git` para todas as tarefas de manipulação de dependências, mas esta tarefa tambem funciona com arquivos `.zip` (confira em http://www.getsymphony.com/download/, para uma instalação em branco remova a pasta `/workspace` antes da instalação).
 
 ### I. Git clone
 
@@ -55,7 +62,7 @@ Primeiro passo, vá a [github.com/symphonycms/symphony-2](http://github.com/symp
 
 ![github.com/symphonycms/symphony-2](screenshots/02-github.symphony.png)
 
-`git clone --depth=1 https://github.com/symphonycms/symphony-2.git mywebsite`
+`git clone https://github.com/symphonycms/symphony-2.git mywebsite`
 
 Com o sistema de arquivos clonado, abra seu projeto no navegador [http://localhost/mywebsite/](http://localhost/mywebsite/).
 
@@ -773,7 +780,7 @@ Saudações.
 
 Neste tutorial você aprendeu a criar um site muito simples, pegue o conjunto __mywebsite__ e construa algo melhor.
 
-Você será bem-vindo ao fazer um fork e abrir uma PR para incluir suas próprias ideias :)
+Você é bem-vindo ao fazer um fork e abrir uma PR para incluir suas próprias ideias :)
 
 
 ---
@@ -788,5 +795,5 @@ __[getsymphony.com](http://www.getsymphony.com/)__
 
 ![getsymphony.com](screenshots/01-getsymphony.com.png)
 
-Criado por Allen Chang e Alistair Kearney por mais de uma década, Symphony é um CMS Open Source XSLT-based feito em PHP e MySQL. Mas não se preocupe sobre linguagens de programação ainda, este CMS é acessível também para designers. Focamos nossa atenção no surpreendente conceito desta ferramenta e quão fácil e rápido você pode construir um website-name inteiro, total controle do seu frontend.
+Criado por Allen Chang e Alistair Kearney por mais de uma década, Symphony é um CMS Open Source XSLT-based feito em PHP e MySQL. Um CMS que te dá todo o controle do frontend do projeto.
 
