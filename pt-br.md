@@ -766,7 +766,7 @@ O arquivo `/workspace/pages/news.xsl` parecerá com isto:
 
 A última extensão que instalaremos neste tutorial é [Export Ensemble](http://symphonyextensions.com/extensions/export_ensemble/). Esta extensão cria uma versão instalável do Symphony website.
 
-Eu instalei esta extensão e exportei os arquivos de instalação para o projeto __Mywebsite__. Verifique aqui <https://github.com/bernardodiasc/symphony-tutorial/mywebsite>.
+Eu instalei esta extensão e exportei os arquivos de instalação para o projeto __Mywebsite__. Verifique aqui [https://github.com/x-team/symphony-tutorial/tree/gh-pages/mywebsite](https://github.com/x-team/symphony-tutorial/tree/gh-pages/mywebsite).
 
 
 Para instalar, apenas coloque os arquivos na pasta pública do seu servidor Apache e abra a URL no navegador e você verá o Assitente de Instalação. Após isso, é só seguir os conceitos deste tutorial.
