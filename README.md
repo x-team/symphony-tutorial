@@ -803,4 +803,5 @@ __[getsymphony.com](http://www.getsymphony.com/)__
 
 Created by Allen Chang and Alistair Kearney for over a decade, Symphony is an Open Source XSLT-based CMS built in PHP and MySQL. A CMS that provides you a full control of the project frontend.
 
+Maintained by the [developers at x-team](https://www.x-team.com) | [developer blog](https://www.x-team.com/blog/)
 
